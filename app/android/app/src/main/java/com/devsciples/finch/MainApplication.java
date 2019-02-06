@@ -1,4 +1,4 @@
-package com.devsciplers.finch;
+package com.devsciples.finch;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

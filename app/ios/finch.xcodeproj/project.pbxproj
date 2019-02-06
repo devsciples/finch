@@ -1344,7 +1344,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devsciplers.finch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devsciples.finch;
 				PRODUCT_NAME = finch;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1368,7 +1368,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devsciplers.finch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devsciples.finch;
 				PRODUCT_NAME = finch;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
