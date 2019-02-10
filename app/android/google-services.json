@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "659312991462",
+    "firebase_url": "https://devsciples-finch.firebaseio.com",
+    "project_id": "devsciples-finch",
+    "storage_bucket": "devsciples-finch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659312991462:android:2fef74b110c7b2f8",
+        "android_client_info": {
+          "package_name": "com.devsciples.finch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659312991462-ah1qdcffn7j7d5iiemfelqorb0ftso6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Uzh2AmSA95hiK5WjRPfcpwchk7An5Nk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
