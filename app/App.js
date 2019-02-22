@@ -2,12 +2,33 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import firebase from 'firebase';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCAARg-SMmqWksv1AIqLthI-UfIuvIi7ko",
+  authDomain: "devsciples-finch.firebaseapp.com",
+  databaseURL: "https://devsciples-finch.firebaseio.com",
+  storageBucket: "gs://devsciples-finch.appspot.com"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+// firebase authetication stuff
+/*firebase.auth()
+  .signInAnonymously()
+  .then(credential => {
+    if (credential) {
+      console.log('default app user ->', credential.user.toJSON());
+    }
+  });*/
+  
 
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
-
+  
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
