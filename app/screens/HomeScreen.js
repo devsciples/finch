@@ -5,25 +5,38 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  TouchableHighlight,
   View,
+  Modal
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { Container,
   Header,
   Title, 
   Content, 
-  Footer, 
-  FooterTab, 
   Button, 
   Left, 
   Right, 
   Body, 
   Icon, 
-  Text } from 'native-base';
+  Text,
+  Item,
+  Input,
+  H1,
+  H2,
+  Segment } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
+
+  state = {
+    modalVisible: false,
+  }
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+
   static navigationOptions = {
     header: null,
   };
@@ -38,14 +51,26 @@ export default class HomeScreen extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>Finch</Title>
+            <Title>finch</Title>
           </Body>
           <Right />
         </Header>
+      
         <Grid>
           <Col>
-            <Row style={{ backgroundColor: '#00CE9F', height: 200 }}>
-
+            <Row style={styles.searchContainer}>
+              <Content padder>
+                <Item rounded>
+                  <Icon active name='search' />
+                  <Input placeholder='Find your Church'/>
+                </Item>
+                <Button rounded style={styles.advancedSearchButton}>
+                  <Text>Advanced Search</Text>
+                </Button>
+              </Content>
+            </Row>
+            <Row style={styles.resultsHeadingContainer}>
+              <H2 style={{color: 'white'}}>Churches Near You</H2>
             </Row>
           </Col>
         </Grid>
@@ -89,6 +114,20 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  resultsHeadingContainer: {
+    height: 50,
+    backgroundColor: 'gray',
+    paddingHorizontal: 10,
+    paddingVertical: 10
+  },
+  advancedSearchButton: {
+    alignSelf: 'center',
+    marginVertical: 10
+  },
+  searchContainer: {
+    height: 150,
+    alignItems: 'center'
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
