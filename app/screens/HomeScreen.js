@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   searchContainer: {
-    height: 170,
+    height: 150,
     alignItems: 'center'
   },
   container: {
