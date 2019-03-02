@@ -24,9 +24,13 @@ import { Container,
   Input,
   H1,
   H2,
-  Segment } from 'native-base';
+  H3,
+  Segment, 
+  StyleProvider} from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { MonoText } from '../components/StyledText';
+import getTheme from '../native-base-theme/components';
+import variables from '../native-base-theme/variables/variables.js';
 
 export default class HomeScreen extends React.Component {
 
@@ -43,7 +47,8 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <Container>
+      <StyleProvider style={getTheme(variables)}>
+        <Container>
           <Header>
           <Left>
             <Button transparent>
@@ -56,25 +61,26 @@ export default class HomeScreen extends React.Component {
           <Right />
         </Header>
       
-        <Grid>
-          <Col>
-            <Row style={styles.searchContainer}>
-              <Content padder>
-                <Item rounded>
-                  <Icon active name='search' />
-                  <Input placeholder='Find your Church'/>
-                </Item>
-                <Button rounded style={styles.advancedSearchButton}>
-                  <Text>Advanced Search</Text>
-                </Button>
-              </Content>
-            </Row>
-            <Row style={styles.resultsHeadingContainer}>
-              <H2 style={{color: 'white'}}>Churches Near You</H2>
-            </Row>
-          </Col>
-        </Grid>
-      </Container>
+          <Grid>
+            <Col>
+              <Row style={styles.searchContainer}>
+                <Content padder>
+                  <Item rounded>
+                    <Icon active name='search' />
+                    <Input placeholder='Find your Church'/>
+                  </Item>
+                  <Button transparent style={styles.advancedSearchButton}>
+                    <Text>Advanced Search</Text>
+                  </Button>
+                </Content>
+              </Row>
+              <Row style={styles.resultsHeadingContainer}>
+                <H3>Churches Near You</H3>
+              </Row>
+            </Col>
+          </Grid>
+        </Container>
+      </StyleProvider>
 
     );
   }
@@ -116,16 +122,17 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   resultsHeadingContainer: {
     height: 50,
-    backgroundColor: 'gray',
+    textAlignVertical: "bottom",
     paddingHorizontal: 10,
-    paddingVertical: 10
+    paddingVertical: 10,
+    borderBottomColor: "#F5A996",
+    borderBottomWidth: 1
   },
   advancedSearchButton: {
     alignSelf: 'center',
-    marginVertical: 10
   },
   searchContainer: {
-    height: 150,
+    height: 170,
     alignItems: 'center'
   },
   container: {
