@@ -4,63 +4,84 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
+  TouchableHighlight,
   View,
+  Modal
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import { Container,
+  Header,
+  Title, 
+  Content, 
+  Button, 
+  Left, 
+  Right, 
+  Body, 
+  Icon, 
+  Text,
+  Item,
+  Input,
+  H1,
+  H2,
+  H3,
+  Segment, 
+  StyleProvider} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import { MonoText } from '../components/StyledText';
+import getTheme from '../native-base-theme/components';
+import variables from '../native-base-theme/variables/variables.js';
 
 export default class HomeScreen extends React.Component {
+
+  state = {
+    modalVisible: false,
+  }
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+
   static navigationOptions = {
     header: null,
   };
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
+      <StyleProvider style={getTheme(variables)}>
+        <Container>
+          <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>finch</Title>
+          </Body>
+          <Right />
+        </Header>
+      
+          <Grid>
+            <Col>
+              <Row style={styles.searchContainer}>
+                <Content padder>
+                  <Item rounded>
+                    <Icon active name='search' />
+                    <Input placeholder='Find your Church'/>
+                  </Item>
+                  <Button transparent style={styles.advancedSearchButton}>
+                    <Text>Advanced Search</Text>
+                  </Button>
+                </Content>
+              </Row>
+              <Row style={styles.resultsHeadingContainer}>
+                <H3>Churches Near You</H3>
+              </Row>
+            </Col>
+          </Grid>
+        </Container>
+      </StyleProvider>
 
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
-      </View>
     );
   }
 
@@ -99,6 +120,21 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  resultsHeadingContainer: {
+    height: 50,
+    textAlignVertical: "bottom",
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderBottomColor: "#F5A996",
+    borderBottomWidth: 1
+  },
+  advancedSearchButton: {
+    alignSelf: 'center',
+  },
+  searchContainer: {
+    height: 150,
+    alignItems: 'center'
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

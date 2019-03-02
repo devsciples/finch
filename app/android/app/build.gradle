@@ -101,10 +101,13 @@ configurations.all {
 // WHEN_PREPARING_SHELL_REMOVE_FROM_HERE
 
 apply from: 'expo.gradle'
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 // WHEN_PREPARING_SHELL_REMOVE_TO_HERE
 
 dependencies {
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-firebase')
     implementation project(':react-native-firebase') 
     compile project(':expo-react-native-adapter')
   implementation fileTree(dir: 'libs', include: ['*.jar'])
