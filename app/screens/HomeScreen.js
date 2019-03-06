@@ -26,7 +26,9 @@ import { Container,
   H2,
   H3,
   Segment, 
-  StyleProvider} from 'native-base';
+  StyleProvider,
+  Form, 
+  Picker } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { MonoText } from '../components/StyledText';
 import getTheme from '../native-base-theme/components';
@@ -34,9 +36,20 @@ import variables from '../native-base-theme/variables/variables.js';
 
 export default class HomeScreen extends React.Component {
 
-  state = {
-    modalVisible: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: "key0",
+      modalVisible: false
+    };
   }
+
+  onValueChange(value) {
+    this.setState({
+      selected: value
+    });
+  }
+
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
@@ -69,10 +82,35 @@ export default class HomeScreen extends React.Component {
                     <Icon active name='search' />
                     <Input placeholder='Find your Church'/>
                   </Item>
-                  <Button transparent style={styles.advancedSearchButton}>
-                    <Text>Advanced Search</Text>
-                  </Button>
                 </Content>
+              </Row>
+              <Row style={styles.searchRefineRow}>
+                <Col style={styles.dropdownColumn}>
+                  <Content>
+                    <Form>
+                      <Picker
+                        mode="dropdown"
+                        iosHeader="Find Your..."
+                        iosIcon={<Icon name="arrow-down" />}
+                        style={{ width: undefined }}
+                        selectedValue={this.state.selected}
+                        onValueChange={this.onValueChange.bind(this)}
+                      >
+                        <Picker.Item label="Church" value="key0" />
+                        <Picker.Item label="Bible Study" value="key1" />
+                        <Picker.Item label="Event" value="key2" />
+                        <Picker.Item label="Outreach" value="key3" />
+                      </Picker>
+                    </Form>
+                  </Content>
+                </Col>
+                <Col style={styles.advancedSearchColumn}>
+                  <Content>
+                    <Button transparent style={styles.advancedSearchButton}>
+                      <Text>Advanced Search</Text>
+                    </Button>
+                  </Content>
+                </Col>
               </Row>
               <Row style={styles.resultsHeadingContainer}>
                 <H3>Churches Near You</H3>
@@ -120,6 +158,20 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  searchRefineRow: {
+    height: 50,
+    alignContent: "center",
+    marginBottom: 20
+  },
+  dropdownColumn: {
+    width: "40%",
+    alignContent: "center",
+    paddingLeft: 10
+  },
+  advancedSearchColumn: {
+    width: '60%',
+    alignContent: "center",
+  },
   resultsHeadingContainer: {
     height: 50,
     textAlignVertical: "bottom",
@@ -132,7 +184,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   searchContainer: {
-    height: 150,
+    height: 65,
     alignItems: 'center'
   },
   container: {
