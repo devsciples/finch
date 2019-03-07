@@ -1,13 +1,7 @@
 import React from 'react';
 import {
-  Image,
   Platform,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableHighlight,
-  View,
-  Modal
+  StyleSheet
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { Container,
@@ -22,15 +16,11 @@ import { Container,
   Text,
   Item,
   Input,
-  H1,
-  H2,
-  H3,
-  Segment, 
+  H3, 
   StyleProvider,
   Form, 
   Picker } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { MonoText } from '../components/StyledText';
 import getTheme from '../native-base-theme/components';
 import variables from '../native-base-theme/variables/variables.js';
 
@@ -50,10 +40,6 @@ export default class HomeScreen extends React.Component {
     });
   }
 
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
-
   static navigationOptions = {
     header: null,
   };
@@ -65,11 +51,11 @@ export default class HomeScreen extends React.Component {
           <Header>
           <Left>
             <Button transparent>
-              <Icon name='menu' />
+              <Icon name="md-menu" />
             </Button>
           </Left>
           <Body>
-            <Title>finch</Title>
+            <Title>Header</Title>
           </Body>
           <Right />
         </Header>
@@ -79,8 +65,8 @@ export default class HomeScreen extends React.Component {
               <Row style={styles.searchContainer}>
                 <Content padder>
                   <Item rounded>
-                    <Icon active name='search' />
-                    <Input placeholder='Find your Church'/>
+                    <Icon active name="md-search" />
+                    <Input placeholder='Search'/>
                   </Item>
                 </Content>
               </Row>
@@ -96,10 +82,10 @@ export default class HomeScreen extends React.Component {
                         selectedValue={this.state.selected}
                         onValueChange={this.onValueChange.bind(this)}
                       >
-                        <Picker.Item label="Church" value="key0" />
-                        <Picker.Item label="Bible Study" value="key1" />
-                        <Picker.Item label="Event" value="key2" />
-                        <Picker.Item label="Outreach" value="key3" />
+                        <Picker.Item label="Category" value="key0" />
+                        <Picker.Item label="Category2" value="key1" />
+                        <Picker.Item label="Category3" value="key2" />
+                        <Picker.Item label="Category4" value="key3" />
                       </Picker>
                     </Form>
                   </Content>
@@ -113,7 +99,7 @@ export default class HomeScreen extends React.Component {
                 </Col>
               </Row>
               <Row style={styles.resultsHeadingContainer}>
-                <H3>Churches Near You</H3>
+                <H3>Results</H3>
               </Row>
             </Col>
           </Grid>
