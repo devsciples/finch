@@ -37,7 +37,7 @@ import color from "color";
       "borderRadiusLarge":57,
       "iconSizeLarge":45,
       "iconSizeSmall":18,
-      "cardDefaultBg":"rgba(246,232,234,1)",
+      "cardDefaultBg":"#fff",
       "cardBorderColor":"rgba(184,170,177,1)",
       "CheckboxRadius":0,
       "CheckboxBorderWidth":2,
