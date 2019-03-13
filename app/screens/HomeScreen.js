@@ -22,6 +22,7 @@ import { Container,
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import getTheme from '../native-base-theme/components';
 import finchTheme from '../native-base-theme/variables/finchTheme.js';
+import Colors from '../constants/Colors';
 
 export default class HomeScreen extends React.Component {
 
@@ -56,13 +57,28 @@ export default class HomeScreen extends React.Component {
                   : 'md-menu'
                 }
                 size={24}
-                color="#312F2F" />
+                color="#565454" />
             </Button>
           </Left>
           <Body>
             <Title>finch</Title>
           </Body>
-          <Right />
+          <Right>
+            <Button transparent>
+              <Icon.Ionicons name={
+                  Platform.OS === 'ios'
+                    ? 'ios-notifications'
+                    : 'md-notifications'
+                  }
+                  size={24}
+                  color="#565454" />
+            </Button>
+            <Button transparent>
+              <Icon.Feather name='message-square'
+                  size={24}
+                  color="#565454" />
+            </Button>
+          </Right>
         </Header>
       
           <Grid>
