@@ -3,7 +3,7 @@ import {
   Platform,
   StyleSheet
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Icon } from 'expo';
 import { Container,
   Header,
   Title, 
@@ -12,7 +12,6 @@ import { Container,
   Left, 
   Right, 
   Body, 
-  Icon, 
   Text,
   Item,
   Input,
@@ -51,7 +50,13 @@ export default class HomeScreen extends React.Component {
           <Header>
           <Left>
             <Button transparent>
-              <Icon name="md-menu" />
+              <Icon.Ionicons name={
+                Platform.OS === 'ios'
+                  ? 'ios-menu'
+                  : 'md-menu'
+                }
+                size={24}
+                color="#F6E8EA" />
             </Button>
           </Left>
           <Body>
@@ -65,7 +70,14 @@ export default class HomeScreen extends React.Component {
               <Row style={styles.searchContainer}>
                 <Content padder>
                   <Item rounded>
-                    <Icon active name="md-search" />
+                    <Icon.Ionicons name={
+                      Platform.OS === 'ios'
+                        ? 'ios-search'
+                        : 'md-search'
+                      }
+                      size={18}
+                      color="#312F2F"
+                      style={{marginLeft: 10}} />
                     <Input placeholder='Search'/>
                   </Item>
                 </Content>
@@ -77,7 +89,7 @@ export default class HomeScreen extends React.Component {
                       <Picker
                         mode="dropdown"
                         iosHeader="Find Your..."
-                        iosIcon={<Icon name="arrow-down" />}
+                       // ios icon was here
                         style={{ width: undefined }}
                         selectedValue={this.state.selected}
                         onValueChange={this.onValueChange.bind(this)}
