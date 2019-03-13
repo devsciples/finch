@@ -12,7 +12,6 @@ import { Container,
   Left, 
   Right, 
   Body, 
-  Icon, 
   Text,
   Item,
   Input,
@@ -23,6 +22,7 @@ import { Container,
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import getTheme from '../native-base-theme/components';
 import variables from '../native-base-theme/variables/variables.js';
+import { Icon } from 'expo';
 
 export default class HomeScreen extends React.Component {
 
@@ -50,8 +50,10 @@ export default class HomeScreen extends React.Component {
         <Container>
           <Header>
           <Left>
-            <Button transparent>
-              <Icon name="md-menu" />
+            <Button>
+              <Icon.Ionicons
+               name="md-menu"
+               color="white" />
             </Button>
           </Left>
           <Body>
