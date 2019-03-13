@@ -1,15 +1,9 @@
 import React from 'react';
 import {
-  Image,
   Platform,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableHighlight,
-  View,
-  Modal
+  StyleSheet
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Icon } from 'expo';
 import { Container,
   Header,
   Title, 
@@ -18,19 +12,14 @@ import { Container,
   Left, 
   Right, 
   Body, 
-  Icon, 
   Text,
   Item,
   Input,
-  H1,
-  H2,
-  H3,
-  Segment, 
+  H3, 
   StyleProvider,
   Form, 
   Picker } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { MonoText } from '../components/StyledText';
 import getTheme from '../native-base-theme/components';
 import variables from '../native-base-theme/variables/variables.js';
 
@@ -50,10 +39,6 @@ export default class HomeScreen extends React.Component {
     });
   }
 
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
-
   static navigationOptions = {
     header: null,
   };
@@ -65,7 +50,13 @@ export default class HomeScreen extends React.Component {
           <Header>
           <Left>
             <Button transparent>
-              <Icon name='menu' />
+              <Icon.Ionicons name={
+                Platform.OS === 'ios'
+                  ? 'ios-menu'
+                  : 'md-menu'
+                }
+                size={24}
+                color="#F6E8EA" />
             </Button>
           </Left>
           <Body>
@@ -79,8 +70,26 @@ export default class HomeScreen extends React.Component {
               <Row style={styles.searchContainer}>
                 <Content padder>
                   <Item rounded>
-                    <Icon active name='search' />
-                    <Input placeholder='Find your Church'/>
+                    <Icon.Ionicons name={
+                      Platform.OS === 'ios'
+                        ? 'ios-search'
+                        : 'md-search'
+                      }
+                      size={18}
+                      color="#312F2F"
+                      style={{marginLeft: 10}} />
+                    <Input placeholder='Find Your Church'/>
+                  </Item>
+                </Content>
+              </Row>
+              <Row style={styles.searchContainer}>
+                <Content padder>
+                  <Item rounded>
+                    <Icon.EvilIcons name='location'
+                      size={18}
+                      color="312F2F"
+                      style={{marginLeft: 10}} />
+                    <Input placeholder='Honolulu, HI'/>
                   </Item>
                 </Content>
               </Row>
@@ -91,7 +100,7 @@ export default class HomeScreen extends React.Component {
                       <Picker
                         mode="dropdown"
                         iosHeader="Find Your..."
-                        iosIcon={<Icon name="arrow-down" />}
+                       // ios icon was here
                         style={{ width: undefined }}
                         selectedValue={this.state.selected}
                         onValueChange={this.onValueChange.bind(this)}
@@ -111,9 +120,6 @@ export default class HomeScreen extends React.Component {
                     </Button>
                   </Content>
                 </Col>
-              </Row>
-              <Row style={styles.resultsHeadingContainer}>
-                <H3>Churches Near You</H3>
               </Row>
             </Col>
           </Grid>
@@ -161,7 +167,9 @@ const styles = StyleSheet.create({
   searchRefineRow: {
     height: 50,
     alignContent: "center",
-    marginBottom: 20
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#F5A996"
   },
   dropdownColumn: {
     width: "40%",
@@ -178,7 +186,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderBottomColor: "#F5A996",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   advancedSearchButton: {
     alignSelf: 'center',
@@ -190,87 +198,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
 });
