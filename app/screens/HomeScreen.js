@@ -21,7 +21,7 @@ import { Container,
   Picker } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import getTheme from '../native-base-theme/components';
-import variables from '../native-base-theme/variables/variables.js';
+import finchTheme from '../native-base-theme/variables/finchTheme.js';
 
 export default class HomeScreen extends React.Component {
 
@@ -45,7 +45,7 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <StyleProvider style={getTheme(variables)}>
+      <StyleProvider style={getTheme(finchTheme)}>
         <Container>
           <Header>
           <Left>
@@ -56,7 +56,7 @@ export default class HomeScreen extends React.Component {
                   : 'md-menu'
                 }
                 size={24}
-                color="#F6E8EA" />
+                color="#312F2F" />
             </Button>
           </Left>
           <Body>
