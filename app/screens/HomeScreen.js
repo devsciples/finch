@@ -23,6 +23,7 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import getTheme from '../native-base-theme/components';
 import finchTheme from '../native-base-theme/variables/finchTheme.js';
 import Colors from '../constants/Colors';
+import ChurchCard from '../components/ChurchCard';
 
 export default class HomeScreen extends React.Component {
 
@@ -136,6 +137,16 @@ export default class HomeScreen extends React.Component {
                     </Button>
                   </Content>
                 </Col>
+              </Row>
+              <Row>
+                <Content padder>
+                  <ChurchCard
+                    name='Makiki Christian Church'
+                    location='829 Pensacola St. Honolulu, HI'
+                    
+                    size='>1000'
+                    time='Sundays, 7:00AM and 10:00AM' />
+                </Content>
               </Row>
             </Col>
           </Grid>
