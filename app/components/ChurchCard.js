@@ -2,30 +2,23 @@ import React from 'react';
 import {
     Platform,
     StyleSheet,
-    Image
+    Image,
+    View,
   } from 'react-native';
 import { Icon } from 'expo';
 import { Container,
-    Header,
-    Title, 
     Content, 
-    Button, 
     Left, 
     Right, 
     Body, 
     Text,
     Item,
-    Input,
-    H3, 
     StyleProvider,
-    Form, 
-    Picker,
     Card,
     CardItem } from 'native-base';
 import getTheme from '../native-base-theme/components';
 import finchTheme from '../native-base-theme/variables/finchTheme.js';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import Colors from '../constants/Colors';
 
 export default class ChurchCard extends React.Component {
   render() {
@@ -52,28 +45,32 @@ export default class ChurchCard extends React.Component {
                         <Col>
                             <Row>
                                 <Content padder>
-                                    <Icon.Ionicons
-                                        name={
-                                            Platform.OS === 'ios'
-                                            ? 'ios-people'
-                                            : 'md-people'
-                                            }
-                                        size={18}
-                                        color="#312F2F"
-                                        style={{marginLeft: 10}}
-                                    />
-                                    <Text style={styles.cardBodyText}>{this.props.size}</Text>
-                                    <Icon.Ionicons
-                                        name={
-                                            Platform.OS === 'ios'
-                                            ? 'ios-time'
-                                            : 'md-time'
-                                            }
-                                        size={18}
-                                        color="#312F2F"
-                                        style={{marginLeft: 10}}
-                                    />
-                                    <Text style={styles.cardBodyText}>{this.props.time}</Text>
+                                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                                        <Icon.Ionicons
+                                            name={
+                                                Platform.OS === 'ios'
+                                                ? 'ios-people'
+                                                : 'md-people'
+                                                }
+                                            size={16}
+                                            color="#312F2F"
+                                            style={{marginLeft: 10}}
+                                        />
+                                        <Text style={styles.cardBodyText}>{this.props.size}</Text>
+                                    </View>
+                                    <View style={{flex: 1, flexDirection: 'row'}}>
+                                        <Icon.Ionicons
+                                            name={
+                                                Platform.OS === 'ios'
+                                                ? 'ios-time'
+                                                : 'md-time'
+                                                }
+                                            size={16}
+                                            color="#312F2F"
+                                            style={{marginLeft: 10}}
+                                        />
+                                        <Text style={styles.cardBodyText}>{this.props.time}</Text>
+                                    </View>
                                 </Content>
                             </Row>
                         </Col>
@@ -99,5 +96,9 @@ const styles = StyleSheet.create({
     },
     cardBodyText: {
         fontSize: 11,
+        marginLeft: 10,
+    },
+    cardIcon: {
+        marginRight: 10,
     },
 })
