@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   searchRefineRow: {
     height: 50,
     alignContent: "center",
-    marginBottom: 20,
+    marginBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: "#F5A996"
   },
