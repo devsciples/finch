@@ -46,15 +46,6 @@ export default class ChurchCard extends React.Component {
                             <Row>
                                 <Content padder>
                                     <View style={{ flex: 1, flexDirection: 'row' }}>
-                                        <Icon.Octicons
-                                            name='location'
-                                            size={16}
-                                            color="#312F2F"
-                                            style={{marginLeft: 10}}
-                                        />
-                                        <Text style={styles.cardBodyText}>{this.props.address}</Text>
-                                    </View>
-                                    <View style={{ flex: 1, flexDirection: 'row' }}>
                                         <Icon.Ionicons
                                             name={
                                                 Platform.OS === 'ios'
@@ -66,6 +57,19 @@ export default class ChurchCard extends React.Component {
                                             style={{marginLeft: 10}}
                                         />
                                         <Text style={styles.cardBodyText}>{this.props.size}</Text>
+                                    </View>
+                                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                                        <Icon.Ionicons
+                                            name={
+                                                Platform.OS === 'ios'
+                                                ? 'ios-time'
+                                                : 'md-time'
+                                                }
+                                            size={16}
+                                            color="#312F2F"
+                                            style={{marginLeft: 10}}
+                                        />
+                                        <Text style={styles.cardBodyText}>{this.props.time}</Text>
                                     </View>
                                     <View style={{flex: 1, flexDirection: 'row'}}>
                                         <Icon.MaterialCommunityIcons
