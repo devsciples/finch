@@ -142,10 +142,12 @@ export default class HomeScreen extends React.Component {
                 <Content padder>
                   <ChurchCard
                     name='Makiki Christian Church'
-                    location='829 Pensacola St. Honolulu, HI'
-                    
+                    address='829 Pensacola St. Honolulu, HI'
                     size='>1000'
-                    time='Sundays, 7:00AM and 10:00AM' />
+                    time='Sundays, 7:00AM and 10:00AM'
+                    language='English, Japanese'
+                    denomination='United Church of Christ'
+                    tags='#traditional #casual' />
                 </Content>
               </Row>
             </Col>

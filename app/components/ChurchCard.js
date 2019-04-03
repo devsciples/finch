@@ -46,6 +46,15 @@ export default class ChurchCard extends React.Component {
                             <Row>
                                 <Content padder>
                                     <View style={{ flex: 1, flexDirection: 'row' }}>
+                                        <Icon.Octicons
+                                            name='location'
+                                            size={16}
+                                            color="#312F2F"
+                                            style={{marginLeft: 10}}
+                                        />
+                                        <Text style={styles.cardBodyText}>{this.props.address}</Text>
+                                    </View>
+                                    <View style={{ flex: 1, flexDirection: 'row' }}>
                                         <Icon.Ionicons
                                             name={
                                                 Platform.OS === 'ios'
@@ -59,17 +68,33 @@ export default class ChurchCard extends React.Component {
                                         <Text style={styles.cardBodyText}>{this.props.size}</Text>
                                     </View>
                                     <View style={{flex: 1, flexDirection: 'row'}}>
-                                        <Icon.Ionicons
-                                            name={
-                                                Platform.OS === 'ios'
-                                                ? 'ios-time'
-                                                : 'md-time'
-                                                }
+                                        <Icon.MaterialCommunityIcons
+                                            name='earth'
                                             size={16}
                                             color="#312F2F"
                                             style={{marginLeft: 10}}
                                         />
-                                        <Text style={styles.cardBodyText}>{this.props.time}</Text>
+                                        <Text style={styles.cardBodyText}>{this.props.language}</Text>
+                                    </View>
+                                    <View style={{flex: 1, flexDirection: 'row'}}>
+                                        <Icon.MaterialCommunityIcons
+                                            name='church'
+                                            size={16}
+                                            color="#312F2F"
+                                            style={{marginLeft: 10}}
+                                        />
+                                        <Text style={styles.cardBodyText}>{this.props.denomination}</Text>
+                                    </View>
+                                    <View style={{flex: 1, flexDirection: 'row'}}>
+                                        <Icon.Ionicons
+                                            name={Platform.os === 'ios'
+                                            ? 'ios-pricetags' 
+                                            : 'md-pricetags'}
+                                            size={16}
+                                            color="#312F2F"
+                                            style={{marginLeft: 10}}
+                                        />
+                                        <Text style={styles.cardBodyText}>{this.props.tags}</Text>
                                     </View>
                                 </Content>
                             </Row>
@@ -84,9 +109,9 @@ export default class ChurchCard extends React.Component {
 
 const styles = StyleSheet.create({
     cardImage: {
-        marginLeft: 10,
-        height: 75,
-        width: 75,
+        
+        height: 100,
+        width: 100,
     },
     cardLeftBody: {
         width: 100,
@@ -95,7 +120,7 @@ const styles = StyleSheet.create({
         width: 250,
     },
     cardBodyText: {
-        fontSize: 11,
+        fontSize: 12,
         marginLeft: 10,
     },
     cardIcon: {
