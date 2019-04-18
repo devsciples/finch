@@ -4,16 +4,6 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import firebase from 'firebase';
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyCAARg-SMmqWksv1AIqLthI-UfIuvIi7ko",
-  authDomain: "devsciples-finch.firebaseapp.com",
-  databaseURL: "https://devsciples-finch.firebaseio.com",
-  storageBucket: "gs://devsciples-finch.appspot.com"
-};
-
-firebase.initializeApp(firebaseConfig);
-
 // firebase authetication stuff
 /*firebase.auth()
   .signInAnonymously()
@@ -25,9 +15,33 @@ firebase.initializeApp(firebaseConfig);
   
 
 export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
+
+  constructor() {
+    super();
+    this.state = {
+      isLoadingComplete: false,
+    };
+    
+  }
+
+  async componentDidMount() {
+    // TODO: You: Do firebase things
+    // const { user } = await firebase.auth().signInAnonymously();
+    // console.warn('User -> ', user.toJSON());
+
+    // await firebase.analytics().logEvent('foo', { bar: '123'});
+
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAARg-SMmqWksv1AIqLthI-UfIuvIi7ko",
+      authDomain: "devsciples-finch.firebaseapp.com",
+      databaseURL: "https://devsciples-finch.firebaseio.com",
+      storageBucket: "gs://devsciples-finch.appspot.com"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+  }
   
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {

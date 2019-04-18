@@ -4,6 +4,8 @@ import {
   StyleSheet
 } from 'react-native';
 import { WebBrowser, Icon } from 'expo';
+import firebase from 'firebase';
+import '@firebase/firestore';
 import { Container,
   Header,
   Title, 
@@ -29,9 +31,12 @@ export default class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    const dbh = firebase.firestore();
     this.state = {
       selected: "key0",
-      modalVisible: false
+      modalVisible: false,
+      churches: [], 
+      loading: false
     };
   }
 

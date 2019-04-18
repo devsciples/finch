@@ -32,11 +32,33 @@ import expo.modules.sms.SMSPackage;
 import expo.modules.taskManager.TaskManagerPackage;
 import expolib_v1.okhttp3.OkHttpClient;
 
+// for expo firebase
+import expo.modules.firebase.app.FirebaseAppPackage; // This should be here for all Expo Firebase features.
+import expo.modules.firebase.firestore.FirebaseFirestorePackage;
+
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
+// optional packages - add/remove as appropriate
+/*
+import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
+import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.config.RNFirebaseRemoteConfigPackage;
+import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
+import io.invertase.firebase.functions.RNFirebaseFunctionsPackage;
+import io.invertase.firebase.instanceid.RNFirebaseInstanceIdPackage;
+import io.invertase.firebase.invites.RNFirebaseInvitesPackage;
+import io.invertase.firebase.links.RNFirebaseLinksPackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+import io.invertase.firebase.perf.RNFirebasePerformancePackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
+*/
+
 import com.oblador.vectoricons.VectorIconsPackage;
-import io.invertase.firebase.RNFirebasePackage;
-import io.invertase.firebase.RNFirebasePackage;
 import expo.adapters.react.ModuleRegistryAdapter;
 
 public class MainApplication extends ExpoApplication implements AppLoaderPackagesProviderInterface<ReactPackage> {
@@ -54,9 +76,27 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
 
         // Needed for `react-native link`
         // new MainReactPackage(),
+            new RNFirebasePackage(),
+            // add/remove these packages as appropriate
+            /*
+            new RNFirebaseAdMobPackage(),
+            new RNFirebaseAnalyticsPackage(),
+            new RNFirebaseAuthPackage(),
+            new RNFirebaseRemoteConfigPackage(),
+            new RNFirebaseCrashlyticsPackage(),
+            new RNFirebaseDatabasePackage(),
+            new RNFirebaseFirestorePackage(),
+            new RNFirebaseFunctionsPackage(),
+            new RNFirebaseInstanceIdPackage(),
+            new RNFirebaseInvitesPackage(),
+            new RNFirebaseLinksPackage(),
+            new RNFirebaseMessagingPackage(),
+            new RNFirebaseNotificationsPackage(),
+            new RNFirebasePerformancePackage(),
+            new RNFirebaseStoragePackage(),
+            */
+        
             new VectorIconsPackage(),
-            new RNFirebasePackage(),
-            new RNFirebasePackage(),
             new ModuleRegistryAdapter()
     );
   }
@@ -85,7 +125,10 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
         new LocalizationPackage(),
         new AppAuthPackage(),
         new TaskManagerPackage(),
-        new BackgroundFetchPackage()
+        new BackgroundFetchPackage(),
+        // firebase stuff
+        new FirebaseAppPackage(), // This should be here for all Expo Firebase features.
+        new FirebaseFirestorePackage() // Include this.
     );
   }
 
