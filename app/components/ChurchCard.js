@@ -38,7 +38,7 @@ export default class ChurchCard extends React.Component {
                         <Col style={{width: 100}}>
                             <Row>
                                 <Content padder>
-                                    <Image style={styles.cardImage} source={{uri: 'http://chiiroba.net/MatsudaFamily/christian/ch-makiki.jpg'}} style={styles.cardImage} />
+                                    <Image style={styles.cardImage} source={{uri: this.props.image}} style={styles.cardImage} />
                                 </Content>
                             </Row>
                         </Col>

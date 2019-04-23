@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   Platform,
-  StyleSheet
+  StyleSheet,
+  ScrollView
 } from 'react-native';
 import { WebBrowser, Icon } from 'expo';
 import { Container,
@@ -81,7 +82,7 @@ export default class HomeScreen extends React.Component {
             </Button>
           </Right>
         </Header>
-      
+          <ScrollView>
           <Grid>
             <Col>
               <Row style={styles.searchContainer}>
@@ -141,17 +142,100 @@ export default class HomeScreen extends React.Component {
               <Row>
                 <Content padder>
                   <ChurchCard
+                    name='Lutheran Church of Honolulu'
+                    image='https://pkmngotrading.com/mediawiki/images/thumb/2/22/The_Lutheran_Church_of_Honolulu_-_Honolulu%2C_HI.jpg/350px-The_Lutheran_Church_of_Honolulu_-_Honolulu%2C_HI.jpg'
+                    location='1730 Punahou St, Honolulu, HI 96822'
+                    size='Small'
+                    time='Morning, Evening'
+                    language='English'
+                    denomination='Lutheran (ECLA)'
+                    tags='#traditional #diverse #LGBT' />
+                  <ChurchCard
+                    name='Olivet Baptist Church'
+                    image='https://s3-media2.fl.yelpcdn.com/bphoto/s8exRWb4ROs7hvEQboSnGg/ls.jpg'
+                    location='1775 S Beretania St, Honolulu, HI 96826'
+                    size='Medium'
+                    time='Morning'
+                    language='English, Japanese'
+                    denomination='Baptist'
+                    tags='#contemporary #preschool #multilingual' />
+                  <ChurchCard
                     name='Makiki Christian Church'
-                    location='829 Pensacola St. Honolulu, HI'
-                    size='>1000'
+                    image='http://chiiroba.net/MatsudaFamily/christian/ch-makiki.jpg'
+                    location='829 Pensacola St. Honolulu, HI 96814'
+                    size='Large'
                     time='Morning'
                     language='English, Japanese'
                     denomination='United Church of Christ'
-                    tags='#traditional #casual' />
+                    tags='#traditional #family #multilingual' />
+                  <ChurchCard
+                    name='Kaimuki Christian Church'
+                    image='https://s3-media4.fl.yelpcdn.com/bphoto/pfm0h79Nb0ClPfrYLYVZCA/ls.jpg'
+                    location='3709, 1117 Koko Head Ave, Honolulu, HI 96816'
+                    size='Large'
+                    time='Morning'
+                    language='English'
+                    denomination='Unknown'
+                    tags='#school #family #diverse' />
+                  <ChurchCard
+                    name='Journey Church Honolulu'
+                    image='https://journeychurchhawaii.org/wp-content/uploads/2016/02/JourneyPodcastArtSm.png'
+                    location='1045 19th Ave. Honolulu, HI 96816'
+                    size='Tiny'
+                    time='Morning'
+                    language='English'
+                    denomination='Nondenominational'
+                    tags='#casual #family' />
+                  <ChurchCard
+                    name='Hope Chapel Honolulu'
+                    image='http://allthingsgraceful.com/wp-content/uploads/2016/06/IMG_0652.jpg'
+                    location='4211 Waialae Ave Suite 3080, Honolulu, HI 96816'
+                    size='Medium'
+                    time='Morning'
+                    language='English'
+                    denomination='Nondenominational'
+                    tags='#family #youth' />
+                  <ChurchCard
+                    name='One Love Ministries'
+                    image='https://yt3.ggpht.com/a-/AAuE7mCy8-J-wubqCHE7Z_pMfdeaxf52cHLA2w0R9w=s900-mo-c-c0xffffffff-rj-k-no'
+                    location='670 Auahi St A5, Honolulu, HI 96813'
+                    size='Medium'
+                    time='Morning'
+                    language='English'
+                    denomination='Baptist'
+                    tags='#casual #baptism' />
+                  <ChurchCard
+                    name='Kawaihao Church'
+                    image='https://www.hawaii-guide.com/images/made/kawalahaochurcharticle_1000_750_75_s_c1_c_b_0_0.jpg.pagespeed.ce.XLk1SopaZR.jpg'
+                    location='957 Punchbowl St, Honolulu, HI 96813'
+                    size='Medium'
+                    time='Morning'
+                    language='English, Hawaiian'
+                    denomination='United Church of Christ'
+                    tags='#traditional #multilingual' />
+                  <ChurchCard
+                    name='Bluewater Mission'
+                    image='https://tvaphawaii.org/wp-content/uploads/2017/11/logo_bluewater.png'
+                    location='810 N Vineyard Blvd, Honolulu, HI 96817'
+                    size='Large'
+                    time='Morning'
+                    language='English'
+                    denomination='Unknown'
+                    tags='#spirit-led #missions #personalgrowth' />
+                  <ChurchCard
+                    name='New Hope Windward'
+                    image='http://www.nhww.org/images/uploads/pages/What_Were_About.JPG'
+                    location='43 Oneawa Street, Suite 203, Kailua HI 96734'
+                    size='Mega'
+                    time='Morning'
+                    language='English'
+                    denomination='Foursquare'
+                    tags='#contemporary' />
                 </Content>
               </Row>
             </Col>
           </Grid>
+          </ScrollView>
         </Container>
       </StyleProvider>
 
