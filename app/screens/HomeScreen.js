@@ -50,6 +50,7 @@ export default class HomeScreen extends React.Component {
     return (
       <StyleProvider style={getTheme(finchTheme)}>
         <Container>
+          {/* Begin Header */}
           <Header>
           <Left>
             <Button transparent>
@@ -82,9 +83,11 @@ export default class HomeScreen extends React.Component {
             </Button>
           </Right>
         </Header>
+          {/* Begin Scrollview */}
           <ScrollView>
           <Grid>
             <Col>
+              {/* First Search Bar */}
               <Row style={styles.searchContainer}>
                 <Content padder>
                   <Item rounded>
@@ -100,6 +103,7 @@ export default class HomeScreen extends React.Component {
                   </Item>
                 </Content>
               </Row>
+              {/* Second Search Bar */}
               <Row style={styles.searchContainer}>
                 <Content padder>
                   <Item rounded>
@@ -111,10 +115,12 @@ export default class HomeScreen extends React.Component {
                   </Item>
                 </Content>
               </Row>
+              {/* Search Regine Section */}
               <Row style={styles.searchRefineRow}>
                 <Col style={styles.dropdownColumn}>
                   <Content>
                     <Form>
+                      {/* Dropdown */}
                       <Picker
                         mode="dropdown"
                         iosHeader="Find Your..."
@@ -133,6 +139,7 @@ export default class HomeScreen extends React.Component {
                 </Col>
                 <Col style={styles.advancedSearchColumn}>
                   <Content>
+                    {/* Advanced Search Button */}
                     <Button transparent style={styles.advancedSearchButton}>
                       <Text>Advanced Search</Text>
                     </Button>
@@ -140,6 +147,7 @@ export default class HomeScreen extends React.Component {
                 </Col>
               </Row>
               <Row>
+                {/* Begin Results List */}
                 <Content padder>
                   <ChurchCard
                     name='Lutheran Church of Honolulu'
@@ -149,7 +157,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning, Evening'
                     language='English'
                     denomination='Lutheran (ECLA)'
-                    tags='#traditional #diverse #LGBT' />
+                    tags='#traditional-liturgy #inclusive #gay-affirming' />
                   <ChurchCard
                     name='Olivet Baptist Church'
                     image='https://s3-media2.fl.yelpcdn.com/bphoto/s8exRWb4ROs7hvEQboSnGg/ls.jpg'
@@ -176,7 +184,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning'
                     language='English'
                     denomination='Unknown'
-                    tags='#school #family #diverse' />
+                    tags='#family #diverse #multigenerational' />
                   <ChurchCard
                     name='Journey Church Honolulu'
                     image='https://journeychurchhawaii.org/wp-content/uploads/2016/02/JourneyPodcastArtSm.png'
@@ -185,7 +193,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning'
                     language='English'
                     denomination='Nondenominational'
-                    tags='#casual #family' />
+                    tags='#casual #friendly #down-to-earth' />
                   <ChurchCard
                     name='Hope Chapel Honolulu'
                     image='http://allthingsgraceful.com/wp-content/uploads/2016/06/IMG_0652.jpg'
@@ -194,7 +202,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning'
                     language='English'
                     denomination='Nondenominational'
-                    tags='#family #youth' />
+                    tags='#family #multigenerational #youth-program' />
                   <ChurchCard
                     name='One Love Ministries'
                     image='https://yt3.ggpht.com/a-/AAuE7mCy8-J-wubqCHE7Z_pMfdeaxf52cHLA2w0R9w=s900-mo-c-c0xffffffff-rj-k-no'
@@ -203,7 +211,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning'
                     language='English'
                     denomination='Baptist'
-                    tags='#casual #baptism' />
+                    tags='#casual #friendly #progressive #multigenerational' />
                   <ChurchCard
                     name='Kawaihao Church'
                     image='https://www.hawaii-guide.com/images/made/kawalahaochurcharticle_1000_750_75_s_c1_c_b_0_0.jpg.pagespeed.ce.XLk1SopaZR.jpg'
@@ -221,7 +229,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning'
                     language='English'
                     denomination='Unknown'
-                    tags='#spirit-led #missions #personalgrowth' />
+                    tags='#spirit-filled #missions #spiritualgrowth #inclusive' />
                   <ChurchCard
                     name='New Hope Windward'
                     image='http://www.nhww.org/images/uploads/pages/What_Were_About.JPG'
@@ -230,7 +238,7 @@ export default class HomeScreen extends React.Component {
                     time='Morning'
                     language='English'
                     denomination='Foursquare'
-                    tags='#contemporary' />
+                    tags='#contemporary #progressive #creative' />
                 </Content>
               </Row>
             </Col>
@@ -280,7 +288,6 @@ const styles = StyleSheet.create({
   searchRefineRow: {
     height: 50,
     alignContent: "center",
-    marginBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: "#F5A996"
   },
@@ -312,4 +319,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  modal: {
+    justifyContent: "center",
+    height: 300,
+    width:500,
+    backgroundColor: "white",
+  }
 });
