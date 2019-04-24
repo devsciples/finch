@@ -9,7 +9,8 @@ import {
   Body,
   Title,
   Right,
-  Content
+  Content,
+  Fab
 } from 'native-base';
 import {Icon} from 'expo';
 import getTheme from '../native-base-theme/components';
@@ -20,6 +21,9 @@ export default class LinksScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      fabActive: false
+    }
   }
 
   static navigationOptions = {
@@ -63,6 +67,31 @@ export default class LinksScreen extends React.Component {
               </Button>
             </Right>
           </Header>
+          {/* Begin fab */}
+          <Fab
+            active={this.state.fabActive}
+            direction="up"
+            containerStyle={{ }}
+            style={{ backgroundColor: '#F2896F' }}
+            position="bottomRight"
+            onPress={() => {this.setState({fabActive: !this.state.fabActive})}}>
+            <Icon.AntDesign 
+              name='plus'
+              size={14}
+              color='#FFFFFF' />
+            <Button style={{ backgroundColor: '#F2896F' }}>
+              <Icon.Entypo
+                 name="text"
+                 size={14}
+                 color='#FFFFFF' />
+            </Button>
+            <Button style={{ backgroundColor: '#F2896F' }}>
+              <Icon.AntDesign
+               name="picture"
+               size={14}
+               color='#FFFFFF' />
+            </Button>
+          </Fab>
           {/* Begin Feed scrollview */}
           <ScrollView>
             <Content padder>
