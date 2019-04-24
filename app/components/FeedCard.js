@@ -23,11 +23,19 @@ import finchTheme from '../native-base-theme/variables/finchTheme.js';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 export default class FeedCard extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            liked: false
+        };
+      }
+
     render() {
         return(
             <StyleProvider style={getTheme(finchTheme)}>
                 <Card>
-                    <CardItem>
+                    <CardItem bordered>
                         <Left>
                             <Thumbnail source={{uri: this.props.thumbnail}} style={styles.cardThumbnail} />
                             <Body>
@@ -49,12 +57,15 @@ export default class FeedCard extends React.Component {
                     </CardItem>
                     <CardItem>
                         <Left>
-                            <Button transparent textStyle={{color: '#87838B'}}>
+                            <Button transparent textStyle={{color: '#87838B'}}
+                                    onPress={() => {this.state.liked 
+                                                    ? this.setState({liked: false}) 
+                                                    : this.setState({liked: true})}}>
                                 {/* icon goes here */}
                                 <Icon.Ionicons
                                             name={Platform.os === 'ios'
-                                            ? 'ios-heart' 
-                                            : 'md-heart'}
+                                            ? (this.state.liked ? 'ios-heart' : 'ios-heart-empty' )
+                                            : (this.state.liked ? 'md-heart' : 'md-heart-empty')}
                                             size={24}
                                             color='#F2896F'
                                             style={{marginLeft: 10}}
@@ -76,10 +87,10 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     cardBodyText: {
-        fontSize: 12,
+        fontSize: 14,
     },
     cardThumbnail: {
         marginLeft: 5,
-        marginTop: 5,
+        marginVertical: 5,
     },
 })
